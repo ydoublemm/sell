@@ -3,6 +3,7 @@ package ymm.sell.service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import ymm.sell.dataproject.ProductInfo;
+import ymm.sell.dto.CartDTO;
 
 import java.util.List;
 import java.util.Optional;
@@ -30,7 +31,9 @@ public interface ProductService {
     ProductInfo save(ProductInfo productInfo);
 
     //加库存
+    void increaseStock(List<CartDTO> cartDTOList);
 
     //减库存
+    void decreaseStock(List<CartDTO> cartDTOList);
 
 }
