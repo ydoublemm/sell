@@ -12,8 +12,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.Assert.*;
-
 /**
  * @Author: ymm
  * @Date: 2018/8/1 13:42
@@ -42,14 +40,17 @@ public class CategoryServiceImplTest {
 
     @Test
     public void findByCategoryTypeIn() {
-        List<Integer> list =Arrays.asList(2,3,4);
+        List<Integer> list = Arrays.asList(2, 3, 4);
         List<ProductCategory> result = categoryService.findByCategoryTypeIn(list);
         Assert.assertNotEquals(0, result.size());
     }
 
     @Test
     public void save() {
-        ProductCategory  productCategory= categoryService.save(new ProductCategory("女生最爱", 4));
+        ProductCategory productCategory = categoryService.save(new ProductCategory("女生最爱", 4));
         categoryService.save(productCategory);
     }
+
+
+
 }
