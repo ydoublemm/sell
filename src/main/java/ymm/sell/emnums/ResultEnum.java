@@ -23,8 +23,10 @@ public enum ResultEnum {
     ORDER_OWNER_ERROR(80,"该订单不属于当前用户"),
 
 
-    cart_empty(1000,"购物车不能为空");
+    cart_empty(1000,"购物车不能为空"),
 
+
+    WX_MP_ERROR(2000,"微信公众账号错误"),
     ;
 
     private Integer code;

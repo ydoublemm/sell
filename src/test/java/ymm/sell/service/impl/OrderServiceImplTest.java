@@ -91,4 +91,11 @@ public class OrderServiceImplTest {
         OrderDTO result = orderService.paid(orderDTO);
         Assert.assertNotNull(result);
     }
+
+    @Test
+    public void findAllList(){
+        Page<OrderDTO> orderServiceList = orderService.findList(PageRequest.of(0, 2));
+        //Assert.assertNotEquals(0, orderServiceList.getTotalElements());
+        Assert.assertTrue("查询所有订单", orderServiceList.getTotalElements()>0);
+    }
 }
