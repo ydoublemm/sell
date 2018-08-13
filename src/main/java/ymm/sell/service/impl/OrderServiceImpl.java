@@ -31,6 +31,7 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @Author: ymm
@@ -97,9 +98,13 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public OrderDTO findOne(final String orderId) {
         //1.查询,判断
-        OrderMaster orderMaster = orderMasterRepository.findById(orderId).get();
-        if (orderMaster == null) {
+        OrderMaster orderMaster=null;
+        Optional<OrderMaster> orderMasterOptional = orderMasterRepository.findById(orderId);
+        //空为false
+        if (!orderMasterOptional.isPresent()) {
             throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+        }else{
+            orderMaster=orderMasterOptional.get();
         }
         List<OrderDetail> orderDetailList = orderDetailRepository.findByOrOrderId(orderId);
         if (CollectionUtils.isEmpty(orderDetailList)) {

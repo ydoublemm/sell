@@ -10,6 +10,7 @@ import lombok.Getter;
 @Getter
 public enum ResultEnum {
 
+    SUCCESS(0,"成功"),
     PARAM_ERROR(1,"参数不正确"),
 
 
