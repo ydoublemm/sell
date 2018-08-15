@@ -1,6 +1,5 @@
 package ymm.sell.controller;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import ymm.sell.dataproject.ProductCategory;
 import ymm.sell.dataproject.ProductInfo;
-import ymm.sell.dto.OrderDTO;
 import ymm.sell.form.ProductForm;
 import ymm.sell.service.CategoryService;
 import ymm.sell.service.ProductService;
@@ -25,7 +23,6 @@ import ymm.sell.utils.KeyUtil;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 /**
  * @Author: ymm
