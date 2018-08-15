@@ -14,6 +14,7 @@ public enum ResultEnum {
     PARAM_ERROR(1,"参数不正确"),
 
 
+    PRODUCT_STATUS_ERROR(9,"商品状态不正确"),
     PRODUCT_NOT_EXIST(10,"商品不存在"),
     PRODUCT_STOCK_ERROR(20,"库存不足"),
     ORDER_NOT_EXIST(30,"订单不存在"),
@@ -28,6 +29,7 @@ public enum ResultEnum {
 
 
     WX_MP_ERROR(2000,"微信公众账号错误"),
+
     ;
 
     private Integer code;

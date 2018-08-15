@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>错误提示</title>
+    <title>成功提示</title>
 <link href="https://cdn.bootcss.com/bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -14,7 +14,7 @@
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                 <h4>
                     成功!
-                </h4> <strong>${msg}!</strong><a href="${url}" class="alert-link">3秒后自动跳转</a>
+                </h4> <strong>${msg!''}</strong><a href="${url}" class="alert-link">3秒后自动跳转</a>
             </div>
         </div>
     </div>

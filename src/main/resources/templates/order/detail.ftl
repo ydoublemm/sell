@@ -2,41 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>错误提示</title>
-    <link href="https://cdn.bootcss.com/bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet">
+    <title>订单详情</title>
+     <#include "../common/header.ftl">
 </head>
 <body>
-<div class="container">
-    <div class="row clearfix">
-        <div class="col-md-6 column">
-            <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <th>订单id</th>
-                    <th>订单总金额</th>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>${orderDTO.orderId}</td>
-                    <td>${orderDTO.orderAmount}</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
 
 
-        <div class="col-md-12 column">
-            <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <th>商品id</th>
-                    <th>商品名称</th>
-                    <th>价格</th>
-                    <th>数量</th>
-                    <th>总额</th>
-                </tr>
-                </thead>
-                <tbody>
+<div id="wrapper" class="toggled">
+<#--边栏sidebar-->
+    <#include  "../common/nav.ftl">
+<#--主要内容content-->
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-md-6 column">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>订单id</th>
+                        <th>订单总金额</th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>${orderDTO.orderId}</td>
+                        <td>${orderDTO.orderAmount}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="col-md-12 column">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>商品id</th>
+                        <th>商品名称</th>
+                        <th>价格</th>
+                        <th>数量</th>
+                        <th>总额</th>
+                    </tr>
+                    </thead>
+                    <tbody>
                 <#list orderDTO.orderDetailList as orderdetail>
                 <tr>
                     <td>${orderdetail.productId}</td>
@@ -46,10 +52,10 @@
                     <td>${orderdetail.productPrice  * orderdetail.productQuantity}</td>
                 </tr>
                 </#list>
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
     <#if orderDTO.orderStatusEnum.msg=="新订单">
         <div class="row clearfix">
             <div class="col-md-12 column">
@@ -58,9 +64,8 @@
             </div>
         </div>
     </#if>
+    </div>
 </div>
-
-
 
 
 
