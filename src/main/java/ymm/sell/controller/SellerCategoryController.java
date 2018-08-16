@@ -30,7 +30,7 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/seller/category")
 @Slf4j
-public class SellCategoryController {
+public class SellerCategoryController {
 
     @Autowired
     private CategoryService categoryService;

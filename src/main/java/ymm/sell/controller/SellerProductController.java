@@ -32,7 +32,7 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "/seller/product")
 @Slf4j
-public class SellProductController {
+public class SellerProductController {
 
     @Autowired
     private ProductService productService;

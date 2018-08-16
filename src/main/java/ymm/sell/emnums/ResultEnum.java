@@ -30,6 +30,9 @@ public enum ResultEnum {
 
     WX_MP_ERROR(2000,"微信公众账号错误"),
 
+    LOGIN_FAIL(3000,"登陆失败"),
+    LOGOUT_SUCCESS(3100,"等处成功")
+
     ;
 
     private Integer code;
