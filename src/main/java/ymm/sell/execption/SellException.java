@@ -1,5 +1,6 @@
 package ymm.sell.execption;
 
+import lombok.Getter;
 import ymm.sell.emnums.ResultEnum;
 
 /**
@@ -7,6 +8,7 @@ import ymm.sell.emnums.ResultEnum;
  * @Date: 2018/8/2 19:13
  * @Description:
  */
+@Getter
 public class SellException extends RuntimeException{
 
     private Integer code;

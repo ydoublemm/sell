@@ -20,7 +20,6 @@ spring:
 
 
 
-
 wechat:
   mpAppId: wx3fd684550e5f953f
   mpAppSecret: 5ece6a491ee6bd897e387e0749a47589
@@ -28,6 +27,12 @@ wechat:
   mchKey:
   keyPath:
   notifyUrl:
+logging:
+  level:
+    ymm.sell.dataproject.mapper: trace
+#mybatis:
+#  mapper-locations: classpath:mapper/*.xml
+
 
 
 

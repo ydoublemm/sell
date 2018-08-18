@@ -24,6 +24,7 @@ import ymm.sell.repositoty.OrderDetailRepository;
 import ymm.sell.repositoty.OrderMasterRepository;
 import ymm.sell.service.OrderService;
 import ymm.sell.service.ProductService;
+import ymm.sell.service.WebSocket;
 import ymm.sell.utils.KeyUtil;
 
 import java.math.BigDecimal;
@@ -51,6 +52,9 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderDetailRepository orderDetailRepository;
 
+    @Autowired
+    private WebSocket webSocket;
+
     @Override
     @Transactional
     public OrderDTO create(final OrderDTO orderDTO) {
@@ -61,11 +65,11 @@ public class OrderServiceImpl implements OrderService {
         //1. 查询商品（数量，价格）
         for (OrderDetail orderDetail : orderDTO.getOrderDetailList()) {
             //校验传进来的商品id在数据库中是否存在
-            ProductInfo productInfo = productService.findOne(orderDetail.getProductId()).get();
-            if (productInfo == null) {
+            Optional<ProductInfo> productInfoOptional = productService.findOne(orderDetail.getProductId());
+            if (!productInfoOptional.isPresent()) {
                 throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
             }
-
+            ProductInfo productInfo = productInfoOptional.get();
             //把商品id和数量装进list，方便下面扣库存
             CartDTO cartDTO = new CartDTO(orderDetail.getProductId(), orderDetail.getProductQuantity());
             cartDTOList.add(cartDTO);
@@ -92,6 +96,9 @@ public class OrderServiceImpl implements OrderService {
         //4.下单成功，扣库存
         productService.decreaseStock(cartDTOList);
 
+
+        //发送websocket消息
+        webSocket.sendMessage(orderDTO.getOrderId());
         return orderDTO;
     }
 

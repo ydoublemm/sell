@@ -1,5 +1,6 @@
 package ymm.sell;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,6 +10,7 @@ import javax.annotation.PostConstruct;
 import java.util.TimeZone;
 
 @SpringBootApplication
+@MapperScan(basePackages = "ymm.sell.dataproject.mapper")
 public class SellApplication {
 
     public static void main(String[] args) {
