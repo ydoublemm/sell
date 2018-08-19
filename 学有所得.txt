@@ -1,0 +1,41 @@
+ 目录 一. 项目介绍二.学到的东西三.遇到过的问题
+
+一. 项目介绍
+
+    本项目是使用Maven构建的，SpringBoot框架写的一个小商城，前端模板使用的freemarker，数据库使用的MySql,持久层用的是JPA，使用webSocket推送订单消息，使用redis贮存用户的token，使用SLF4J+Logback做日志层。
+    本项目分为订单模块，商品模块，类目模块，消息推送模块，身份验证模块。
+    本项目的主要功能：后台商品、订单、类目管理（增删改查），用户输入openid后验证权限，有人下单时通知后台。
+
+二.学到的东西
+
+    1）自定义异常，并使用handler处理异常，类上使用@ControllerAdvice
+    2）使用lombok，在类上@Data自动生成get,set方法，非常方便
+    3）单元测试
+    4）Logback的使用
+    5）对于返回到前端的对象，与持久层中的对象不一致，可以新建的VO对象。
+    在程序中持久层对象往往不够用，可以新建dto层，加入更多需要的对象。因为dto层的对象和持久层对象常常需要转换，可以新建转换工具类，封装方便使用。
+    6）对于枚举和常量的使用，个人认为枚举比常量更好。
+    7）使用aop思想身份验证
+    8）webSocket的简单实用
+
+三.遇到过的问题
+
+    /*
+     *这个类在测试的时候会报错，需要把这个类给注释掉
+     * 网上没找到解决方法
+     *
+     * 项目打包的时候需要跳过测试
+     * mvn package -DskipTests
+     */
+    @Component
+    public class WebSocketConfig {
+
+        @Bean
+        public ServerEndpointExporter serverEndpointExporter() {
+            return new ServerEndpointExporter();
+        }
+    }
+
+
+
+
